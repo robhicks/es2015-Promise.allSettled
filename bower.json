@@ -1,0 +1,24 @@
+{
+  "name": "es2015-promise.allsettled",
+  "description": "Ponyfill for Promise.allSettled",
+  "main": "dist/es2015.Promise.allSettled.ponyfill.js",
+  "authors": [
+    "Rob Hicks <rob@hixfamily.org>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "es2015",
+    "Promise",
+    "allSettled",
+    "ponyfill",
+    "pollyfill"
+  ],
+  "homepage": "https://github.com/robhicks/es2015-Promise.allSettled",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

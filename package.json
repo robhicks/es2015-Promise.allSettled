@@ -1,0 +1,47 @@
+{
+  "name": "es2015-promise.allsettled",
+  "version": "1.0.0",
+  "description": "Ponyfill for Promise.allSettled",
+  "main": "index.js",
+  "jsnext:main": "dist/es2015-Promise.allSettled.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "postinstall": "gulp build",
+    "test": "mocha -u bdd -R spec -t 5000 --compilers js:babel-core/register test/promise-allsettled.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robhicks/es2015-Promise.allSettled.git"
+  },
+  "keywords": [
+    "es2015",
+    "Promise",
+    "allSettled",
+    "ponyfill",
+    "pollyfill"
+  ],
+  "author": "Rob Hicks <rob@hixfamily.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robhicks/es2015-Promise.allSettled/issues"
+  },
+  "homepage": "https://github.com/robhicks/es2015-Promise.allSettled#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "mocha": "^3.1.0",
+    "rollup": "^0.36.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.4",
+    "rollup-plugin-uglify": "^1.0.1",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "source-map": "^0.5.6"
+  }
+}
