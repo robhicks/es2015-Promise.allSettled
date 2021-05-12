@@ -13,7 +13,7 @@ and rejection.
 Promise.allSettled(promises)
 .then((results) => {
     results.forEach(function (result) {
-        if (result.state === "fulfilled") {
+        if (result.status === "fulfilled") {
           let value = result.value;
         } else {
           let reason = result.reason;

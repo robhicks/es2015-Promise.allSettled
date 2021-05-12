@@ -16,8 +16,10 @@ describe('Promise.allSettled', function(){
     const promise2 = Promise.resolve('yeah2');
     return Promise.allSettled([promise1, promise2]).then((results) => {
       expect(results).to.be.an('array');
+      expect(results[0].status).to.be.equal('fulfilled');
       expect(results[0].state).to.be.equal('fulfilled');
       expect(results[0].value).to.be.equal('yeah1');
+      expect(results[1].status).to.be.equal('fulfilled');
       expect(results[1].state).to.be.equal('fulfilled');
       expect(results[1].value).to.be.equal('yeah2');
     })
@@ -29,8 +31,10 @@ describe('Promise.allSettled', function(){
     const promise2 = Promise.reject('boo');
     return Promise.allSettled([promise1, promise2]).then((results) => {
       expect(results).to.be.an('array');
+      expect(results[0].status).to.be.equal('fulfilled');
       expect(results[0].state).to.be.equal('fulfilled');
       expect(results[0].value).to.be.equal('yeah1');
+      expect(results[1].status).to.be.equal('rejected');
       expect(results[1].state).to.be.equal('rejected');
       expect(results[1].reason).to.be.equal('boo');
     })
@@ -41,8 +45,10 @@ describe('Promise.allSettled', function(){
     const promise2 = Promise.resolve('yeah2');
     return Promise.allSettled([promise1, promise2]).then((results) => {
       expect(results).to.be.an('array');
+      expect(results[0].status).to.be.equal('rejected');
       expect(results[0].state).to.be.equal('rejected');
       expect(results[0].reason).to.be.equal('boo1');
+      expect(results[1].status).to.be.equal('fulfilled');
       expect(results[1].state).to.be.equal('fulfilled');
       expect(results[1].value).to.be.equal('yeah2');
     })
@@ -53,8 +59,10 @@ describe('Promise.allSettled', function(){
     const promise2 = Promise.reject('boo2');
     return Promise.allSettled([promise1, promise2]).then((results) => {
       expect(results).to.be.an('array');
+      expect(results[0].status).to.be.equal('rejected');
       expect(results[0].state).to.be.equal('rejected');
       expect(results[0].reason).to.be.equal('boo1');
+      expect(results[1].status).to.be.equal('rejected');
       expect(results[1].state).to.be.equal('rejected');
       expect(results[1].reason).to.be.equal('boo2');
     })
@@ -72,6 +80,7 @@ describe('Promise.allSettled', function(){
       expect(results).to.be.an('array');
       expect(results).to.have.length(10000);
       results.forEach((result) => {
+        expect(result.status).to.be.equal('fulfilled');
         expect(result.state).to.be.equal('fulfilled');
         expect(result.value).to.be.equal('yeah1')
       });
